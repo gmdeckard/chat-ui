@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-OLLAMA_SERVER_URL = 'http://localhost:11434/api/chat'
+OLLAMA_SERVER_URL = 'http://127.0.0.1:11434/api'
 
 @app.route('/')
 def index():
