@@ -25,6 +25,7 @@ $(document).ready(function() {
 
         $('#chat-box').append('<div><strong>You:</strong> ' + message + '</div>');
         $('#message-input').val('');
+        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
 
         $.ajax({
             url: '/chat',
@@ -32,7 +33,11 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ message: message, model: model }),
             success: function(response) {
-                $('#chat-box').append('<div><strong>Ollama:</strong> ' + response.response + '</div>');
+                if (response && response.response) {
+                    $('#chat-box').append('<div><strong>Ollama:</strong> ' + response.response + '</div>');
+                } else {
+                    $('#chat-box').append('<div><strong>Ollama:</strong> No response received</div>');
+                }
                 $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
             },
             error: function(xhr, status, error) {
