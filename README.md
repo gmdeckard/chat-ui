@@ -1,6 +1,6 @@
 # Ollama Chat UI
 
-A simple web interface for interacting with Ollama language models.
+A super simple web interface for interacting with Ollama language models.
 
 ## Features
 
